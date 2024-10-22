@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/prueba_color"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E0F7FA"
+    android:orientation="vertical">
+  <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="HOMEPAGE IN PROGRESS"
+      android:textSize="24sp"
+      android:textColor="#000000" />  <!-- Centrar el texto -->
+  <!-- Espaciador flexible para empujar la franja hacia abajo -->
+  <View
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      android:layout_weight="1" />  <!-- Este espaciador ocupa el espacio disponible -->
+
+  <!-- Franja de color en la parte inferior -->
+  <View
+      android:id="@+id/color_band"
+      android:layout_width="match_parent"
+      android:layout_height="100dp"
+      android:background="@android:color/holo_blue_light" />
+
+  <!-- Color por defecto -->
+  <!-- Texto en el medio -->
+
+
+</LinearLayout>
