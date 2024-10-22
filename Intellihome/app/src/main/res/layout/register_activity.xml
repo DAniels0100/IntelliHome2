@@ -156,6 +156,7 @@
                 android:padding="6dp"
                 android:paddingTop="180dp"
                 android:textColorHint="#477991"
+                android:inputType="phone"
                 tools:ignore="TouchTargetSizeCheck" />
         </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>

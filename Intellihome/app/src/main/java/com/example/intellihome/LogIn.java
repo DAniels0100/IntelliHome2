@@ -56,10 +56,11 @@ public class LogIn extends AppCompatActivity {
                 final String nicknameOcorreoTxt = nombreUsuario.getText().toString().trim();
                 final String contrasenaTxt = contrasena.getText().toString().trim();
 
-                if (nicknameOcorreoTxt.isEmpty() || contrasenaTxt.isEmpty()){
-                    Toast.makeText(LogIn.this, "Debe ingresar el nombre de usuario y contraseña", Toast.LENGTH_SHORT).show();
-                }
-                else {
+                if (nicknameOcorreoTxt.isEmpty()){
+                    nombreUsuario.setError("Debe rellenar correo");
+                } else if (contrasenaTxt.isEmpty()) {
+                    contrasena.setError("Debe rellenar la contrasena");
+                } else {
                     // Reemplazar los puntos con comas si el usuario ingresó un correo
                     String nicknameOcorreo = nicknameOcorreoTxt.contains("@") ? nicknameOcorreoTxt.replace(".", ",") : nicknameOcorreoTxt;
 
@@ -75,11 +76,9 @@ public class LogIn extends AppCompatActivity {
                                 if (getContrasena.equals(contrasenaTxt)) {
                                     startActivity(new Intent(LogIn.this, HomePage.class));
                                 } else {
-                                    Toast.makeText(LogIn.this, "Correo o Contraseña incorrecta", Toast.LENGTH_SHORT).show();
-                                }
+                                    contrasena.setError("Contrasena incorrecta");                                }
                             } else {
-                                Toast.makeText(LogIn.this, "Usuario no existe", Toast.LENGTH_SHORT).show();
-                            }
+                                nombreUsuario.setError("Nickname o correo no existe");                            }
                         }
 
                         @Override
@@ -88,6 +87,15 @@ public class LogIn extends AppCompatActivity {
                         }
                     });
                 }
+            }
+        });
+
+        // se abre el layout de recuperar contrasena
+        olvidoContrasena.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                startActivity(new Intent(LogIn.this, Recuperar2.class));
             }
         });
 

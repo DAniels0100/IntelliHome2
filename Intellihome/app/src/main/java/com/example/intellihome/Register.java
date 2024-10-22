@@ -117,15 +117,24 @@ public class Register extends AppCompatActivity {
                     // Mostrar un mensaje indicando que debe aceptar los términos
                     aceptoRadioButton.setError("El nickname contiene palabras prohibidas");
                 }
+                else if (!telefonoCorrecto(numeroTelefonoTxt)) {
+                    numeroTelefono.setError("El numero debe contener 8 digitos");
+                }
+                else if (!edadCorrecta(edadTxt)) {
+                    edad.setError("Se necesita una edad superior o igual a 18");
+                }
                 //se completo el registro exitosamente
                 else{
 
                     databaseReference.child("usuarios").addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            String emailFormatted = emailTxt.replace(".", ",");
                             //verificar que no exista el usuario
-                            if (snapshot.hasChild(nickNameTxt)){
+                            if (snapshot.hasChild(nickNameTxt)) {
                                 nickName.setError("El nickname ya existe");
+                            }if (snapshot.hasChild(emailFormatted)){
+                                    email.setError("El correo ya existe");
                             }else{
                                 //se usa como identificador/raiz el nickname y correo del usuario
                                 //se envia la data a la base de datos
@@ -137,7 +146,6 @@ public class Register extends AppCompatActivity {
                                 databaseReference.child("usuarios").child(nickNameTxt).child("edad").setValue(edadTxt);
                                 databaseReference.child("usuarios").child(nickNameTxt).child("domicilio").setValue(domicilioTxt);
                                 // Guardar por correo
-                                String emailFormatted = emailTxt.replace(".", ",");  // Reemplazar el punto para que Firebase lo acepte
                                 databaseReference.child("usuarios").child(emailFormatted).child("nombre").setValue(nombreTxt);
                                 databaseReference.child("usuarios").child(emailFormatted).child("apellido").setValue(apellidoTxt);
                                 databaseReference.child("usuarios").child(emailFormatted).child("numeroTelefono").setValue(numeroTelefonoTxt);
@@ -165,6 +173,23 @@ public class Register extends AppCompatActivity {
         subirImagen.setOnClickListener(view -> showImageOptionsDialog());
     }
 
+    public boolean edadCorrecta(String edad){
+        try {
+            int numeroEdad = Integer.parseInt(edad);
+            return (numeroEdad>=18);
+        }catch (NumberFormatException e){
+            return false;
+        }
+    }
+
+    public boolean telefonoCorrecto(String telefono) {
+        // Verificar que la longitud sea 8 y que todos los caracteres sean dígitos
+        if (telefono.length() == 8 && telefono.matches("\\d{8}")) {
+            return true;
+        }
+        return false;
+    }
+    
     private boolean terminosAceptados() {
         RadioButton aceptoRadioButton = findViewById(R.id.acepto);
 
