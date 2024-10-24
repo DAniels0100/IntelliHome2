@@ -10,6 +10,11 @@
           <theme>@style/Theme.IntelliHome</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_historial.xml">
+        <config>
+          <theme>@style/Theme.IntelliHome</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_log_in.xml">
         <config>
           <theme>@style/Theme.IntelliHome</theme>

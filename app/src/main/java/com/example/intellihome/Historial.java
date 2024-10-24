@@ -35,10 +35,10 @@ public class Historial extends AppCompatActivity {
                     public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
                         switch (position) {
                             case 0:
-                                tab.setText("Pestaña 1"); // Cambia el texto según tus necesidades
+                                tab.setText("Arrendador");
                                 break;
                             case 1:
-                                tab.setText("Pestaña 2"); // Cambia el texto según tus necesidades
+                                tab.setText("Arrendatario");
                                 break;
                         }
                     }
