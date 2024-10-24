@@ -12,5 +12,7 @@
     <string name="paleta3">paleta3</string>
     <string name="paleta4">paleta4</string>
     <string name="Español">Español</string>
+    <string name="Busqueda_del_Home_Page">Busqueda</string>
     <string name="Inglés">Inglés</string>
+    <string name="botonRegresar">botonRegresar</string>
 </resources>
