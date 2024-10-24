@@ -22,5 +22,25 @@ public class HomePage extends AppCompatActivity {
                 startActivity(new Intent(HomePage.this, Perfil.class));
             }
         });
+
+        // Encuentra el ImageView de historial
+        ImageView historial = findViewById(R.id.historial);
+
+        historial.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(HomePage.this, Historial.class));
+            }
+        });
+
+        // Encuentra el ImageView de domotica
+        ImageView domotica = findViewById(R.id.domotica);
+
+        domotica.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(HomePage.this, Domotica.class));
+            }
+        });
     }
 }

@@ -27,5 +27,35 @@ public class Historial extends AppCompatActivity {
             }
         });
 
+        // Encuentra el ImageView de perfil
+        ImageView perfilMenu = findViewById(R.id.perfilmenu);
+
+        perfilMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Historial.this, Perfil.class));
+            }
+        });
+
+        // Encuentra el ImageView de historial
+        ImageView historial = findViewById(R.id.historial);
+
+        historial.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Historial.this, Historial.class));
+            }
+        });
+
+        // Encuentra el ImageView de domotica
+        ImageView domotica = findViewById(R.id.domotica);
+
+        domotica.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Historial.this, Domotica.class));
+            }
+        });
+
     }
 }
