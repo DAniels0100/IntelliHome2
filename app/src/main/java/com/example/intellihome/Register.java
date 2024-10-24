@@ -24,7 +24,6 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.google.android.material.textfield.TextInputEditText;
-import com.google.firebase.Firebase;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -53,7 +52,7 @@ public class Register extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.register_activity);
+        setContentView(R.layout.activity_register);
 
         final EditText nombre = findViewById(R.id.nombreInput);
         final EditText apellido = findViewById(R.id.apellidoInput);

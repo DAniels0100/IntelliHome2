@@ -2,6 +2,7 @@ package com.example.intellihome;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -27,6 +28,7 @@ import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.Firebase;
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -44,12 +46,14 @@ public class LogIn extends AppCompatActivity {
     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://intellihome-293ec-default-rtdb.firebaseio.com/");
     private GoogleSignInClient googleSignInClient;
 
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_log_in);
+
 
         //recuperacion de los inputs del usuario al intentar logear o necesitar crear/recuperar cuenta
         final EditText nombreUsuario = findViewById(R.id.nombreUsuarioLogIn);
@@ -89,6 +93,10 @@ public class LogIn extends AppCompatActivity {
 
                                 // Comprobar si la contraseña ingresada coincide
                                 if (getContrasena.equals(contrasenaTxt)) {
+                                    SharedPreferences sharedPreferences = getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
+                                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                                    editor.putString("nickname", nicknameOcorreo); // nicknameOcorreo es el nickname formateado
+                                    editor.apply();
                                     startActivity(new Intent(LogIn.this, HomePage.class));
                                 } else {
                                     contrasena.setError("Contrasena incorrecta");                                }
@@ -159,6 +167,7 @@ public class LogIn extends AppCompatActivity {
         });
     }
 
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -197,8 +206,11 @@ public class LogIn extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        if (user != null) {
+        SharedPreferences sharedPreferences = getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
+        String savedNickname = sharedPreferences.getString("nickname", null);
+
+        if (savedNickname != null) {
+            // Si hay un nickname guardado, redirigir a HomePage o Perfil
             startActivity(new Intent(this, HomePage.class));
             finish(); // Evita que el usuario vuelva a la pantalla de login
         }

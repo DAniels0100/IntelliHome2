@@ -31,11 +31,22 @@
       app:layout_constraintTop_toTopOf="parent"
       app:layout_constraintStart_toStartOf="parent" />
 
+  <!-- Icono de filtro -->
+  <ImageView
+      android:id="@+id/filtro_icono"
+      android:layout_width="25dp"
+      android:layout_height="25dp"
+      android:layout_marginStart="50dp"
+      android:layout_marginTop="10dp"
+      android:src="@drawable/fiiltro"
+      app:layout_constraintTop_toTopOf="@id/busqueda1"
+      app:layout_constraintStart_toStartOf="@id/busqueda1"/>
+
   <!-- Campo de texto para la Búsqueda -->
   <com.google.android.material.textfield.TextInputLayout
+      android:id="@+id/busqueda1"
       android:layout_width="0dp"
       android:layout_height="wrap_content"
-      android:layout_marginTop="15sp"
       app:boxCornerRadiusBottomEnd="20dp"
       app:boxCornerRadiusBottomStart="20dp"
       app:boxCornerRadiusTopEnd="20dp"
@@ -43,10 +54,9 @@
       app:boxStrokeColor="#477991"
       app:boxStrokeWidth="2dp"
       app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.0"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@id/logoIntelliHome"
-      app:endIconDrawable="@drawable/lupa"
+      app:layout_constraintHorizontal_bias="0.0"
       android:gravity="center_horizontal">
 
     <com.google.android.material.textfield.TextInputEditText
@@ -59,14 +69,12 @@
         android:maxLines="1"
         tools:ignore="TouchTargetSizeCheck"
         android:drawableRight="@drawable/lupa"
-        android:drawableLeft="@drawable/filtrobusqueda"
         android:contentDescription="@string/Busqueda_del_Home_Page"
-        android:gravity="center_horizontal"/>
+        android:gravity="center_horizontal"
+        android:focusable="false"/>
   </com.google.android.material.textfield.TextInputLayout>
 
   <!-- Texto HomePage -->
-
-  <!-- Fondo Menú -->
   <ImageView
       android:id="@+id/textohomepage"
       android:layout_width="wrap_content"
@@ -74,7 +82,6 @@
       android:layout_marginTop="48dp"
       android:src="@drawable/textohomepage"
       app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.0"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@id/logoIntelliHome"/>
 

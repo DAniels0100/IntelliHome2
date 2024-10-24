@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 public class HomePage extends AppCompatActivity {
@@ -15,11 +14,42 @@ public class HomePage extends AppCompatActivity {
 
         // Encuentra el ImageView de perfil
         ImageView perfilMenu = findViewById(R.id.perfilmenu);
-
-        // Estableciendo un OnClickListener para que al hacer clic se redirija a PerfilActivity
-        perfilMenu.setOnClickListener(v -> {
-            Intent intent = new Intent(HomePage.this, PerfilActivity.class);
-            startActivity(intent);
+        perfilMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(HomePage.this, Perfil.class));
+            }
         });
+
+        // Encuentra el ImageView del filtro
+        ImageView filtroBusqueda = findViewById(R.id.filtro_icono);
+        filtroBusqueda.bringToFront();
+        filtroBusqueda.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FiltrosDialog filtrosDialog = new FiltrosDialog();
+                filtrosDialog.show(getSupportFragmentManager(), "filtros_dialog");
+            }
+        });
+
+        // Encuentra el ImageView de domotica
+        ImageView domotica = findViewById(R.id.domotica);
+        domotica.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(HomePage.this, Domotica.class));
+            }
+        });
+
+        // Encuentra el ImageView de historial
+        ImageView historial = findViewById(R.id.historial);
+        historial.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(HomePage.this, Historial.class));
+            }
+        });
+
     }
 }
+

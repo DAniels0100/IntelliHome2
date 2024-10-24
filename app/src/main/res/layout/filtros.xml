@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Opción: Precio (solo números) -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Precio"
+        android:textSize="20sp"
+        android:layout_gravity="center_horizontal"
+        android:textColor="#477991"/>
+
+    <EditText
+        android:id="@+id/input_precio"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="Ingrese el precio"
+        android:layout_gravity="center_horizontal"
+        android:inputType="number"
+        android:minHeight="48dp"
+        android:padding="8dp"/>
+
+    <!-- Opción: Ubicación -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ubicación"
+        android:textSize="20sp"
+        android:layout_gravity="center_horizontal"
+        android:textColor="#477991"/>
+
+    <EditText
+        android:id="@+id/input_ubicacion"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:hint="Ingrese la ubicación"
+        android:inputType="text"
+        android:minHeight="48dp"
+        android:padding="8dp"/>  <!-- Añadir padding -->
+
+    <!-- Opción: Amenidades -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Amenidades"
+        android:textSize="20sp"
+        android:layout_gravity="center_horizontal"
+        android:textColor="#477991"/>
+
+    <EditText
+        android:id="@+id/input_amenidades"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:hint="Ingrese las amenidades"
+        android:minHeight="48dp"
+        android:padding="8dp"/>  <!-- Añadir padding -->
+
+    <!-- Opción: Cantidad de Personas (solo números) -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cantidad de Personas"
+        android:textSize="20sp"
+        android:layout_gravity="center_horizontal"
+        android:textColor="#477991"/>
+
+    <EditText
+        android:id="@+id/input_personas"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:hint="Ingrese el número de personas"
+        android:inputType="number"
+        android:minHeight="48dp"
+        android:padding="8dp"/>  <!-- Añadir padding -->
+
+    <!-- Opción: Cantidad de Habitaciones (solo números) -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cantidad de Habitaciones"
+        android:textSize="20sp"
+        android:layout_gravity="center_horizontal"
+        android:textColor="#477991"/>
+
+    <EditText
+        android:id="@+id/input_habitaciones"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:hint="Ingrese el número de habitaciones"
+        android:inputType="number"
+        android:minHeight="48dp"
+        android:padding="8dp"/>  <!-- Añadir padding -->
+
+    <!-- Botón para aplicar los filtros -->
+    <Button
+        android:id="@+id/boton_aplicar_filtros"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#477991"
+        android:textColor="#FFFFFF"
+        android:text="Aplicar Filtros" />
+</LinearLayout>

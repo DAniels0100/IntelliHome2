@@ -21,10 +21,19 @@
         android:theme="@style/Theme.IntelliHome"
         tools:targetApi="31">
         <activity
-            android:name=".PasarelaPagos"
+            android:name=".RegistroPropiedad"
             android:exported="false" />
         <activity
-            android:name=".PasarelaDePago"
+            android:name=".Perfil"
+            android:exported="false" />
+        <activity
+            android:name=".Domotica"
+            android:exported="false" />
+        <activity
+            android:name=".Historial"
+            android:exported="false" />
+        <activity
+            android:name=".PasarelaPagos"
             android:exported="false" />
         <activity
             android:name=".Recuperar2"
@@ -34,6 +43,9 @@
             android:exported="false" />
         <activity
             android:name=".HomePage"
+            android:exported="false" />
+        <activity
+            android:name=".FiltrosDialog"
             android:exported="false" />
         <activity
             android:name=".Custom"
