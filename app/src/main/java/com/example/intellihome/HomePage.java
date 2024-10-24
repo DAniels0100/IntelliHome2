@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -33,6 +34,7 @@ public class HomePage extends AppCompatActivity {
     SearchView busqueda;
     AdapterPropiedad adapterPropiedad;
 
+    Button reservarBtn;
     LinearLayoutManager layoutManager;
 
     @Override
@@ -94,6 +96,16 @@ public class HomePage extends AppCompatActivity {
                 return true;
             }
         });
+
+        reservarBtn = findViewById(R.id.reservaBtn);
+
+        reservarBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(HomePage.this, PasarelaPagos.class));
+            }
+        });
+
 
         try {
             // Encuentra el ImageView de perfil

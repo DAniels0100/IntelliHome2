@@ -20,6 +20,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.IntelliHome"
         tools:targetApi="31">
+
         <activity
             android:name=".Busqueda"
             android:exported="false" />
@@ -31,7 +32,17 @@
             android:exported="false" />
         <activity
             android:name=".Domotica"
-            android:exported="false" />
+            android:exported="false"
+            android:label="@string/title_activity_domotica"
+            android:theme="@style/Theme.IntelliHome">
+            <!-- Intent filter para detectar la conexión del USB -->
+            <intent-filter>
+                <action android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" />
+            </intent-filter>
+            <meta-data
+                android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED"
+                android:resource="@xml/device_filter" />
+        </activity>
         <activity
             android:name=".Historial"
             android:exported="false" />
@@ -46,7 +57,14 @@
             android:exported="false" />
         <activity
             android:name=".LogIn"
-            android:exported="false" />
+            android:exported="true"
+            android:label="@string/title_activity_log_in"
+            android:theme="@style/Theme.IntelliHome">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".Custom"
             android:exported="false" />
@@ -55,15 +73,7 @@
             android:exported="false" />
         <activity
             android:name=".HomePage"
-            android:exported="true"
-            android:label="@string/title_activity_log_in"
-            android:theme="@style/Theme.IntelliHome">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="false" />
     </application>
 
 </manifest>

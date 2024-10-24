@@ -15,4 +15,5 @@
     <string name="Busqueda_del_Home_Page">Busqueda</string>
     <string name="Inglés">Inglés</string>
     <string name="botonRegresar">botonRegresar</string>
+    <string name="title_activity_domotica">Domótica</string>
 </resources>
